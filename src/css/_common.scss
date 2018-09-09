@@ -1,0 +1,149 @@
+@import "./_variables.scss";
+
+.page {
+  overflow-x: hidden;
+}
+
+.btn {
+  border: none;
+  // width: 9.375rem;
+  // height: 2.188rem;
+  border-radius: 0.375rem;
+  background-color: $red-accent-color;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 0.875rem;
+  font-weight: 700;
+  // line-height: 1.625rem;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 14px 1px rgba(0,0,0,.2);
+  transition: box-shadow .5s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.socials {
+  color: $dark;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+
+  &::before {
+    content: '';
+
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  transition: color .25s;
+}
+
+.row {
+  // margin-right: 0;
+  // margin-left:  0;
+}
+
+h2 {
+  color: $red-accent-color;
+  font-family: 'Segoe Script';
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+}
+
+.text {
+  color: $grey;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  margin: 0;
+}
+
+.title__composition {
+  text-align: center;
+
+  .title__small {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .title__h2 {
+    font-size: 1.75rem;
+
+    &--white {
+      color: white;
+    }
+  }
+}
+
+.section--p {
+  padding-top: 150px;
+  padding-bottom: 150px;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.glide__arrow {
+  position: absolute;
+  top: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0.125rem solid $red-accent-color;
+  background-color: transparent;
+  border-radius: 100%;
+  transition: background-color .25s;
+  box-shadow: none;
+
+  &--left {
+    left: -2.5rem;
+  }
+  &--right {
+    right: -2.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../public/img/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+  }
+
+  background-color: $red-accent-color;
+
+}
+
+.glide__arrow--right {
+  transform: rotate(180deg);
+}
+input {
+  border: none;
+  min-width: 0;
+}

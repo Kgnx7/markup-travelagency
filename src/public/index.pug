@@ -1,3 +1,5 @@
+include ./_mixins.pug
+
 doctype html
 html(lang='en')
   head
@@ -5,5 +7,112 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title Document
-  body
-    h1 Hello
+  body.page
+    header.header
+      .container
+        .row
+          .header__logo
+            .header__img
+              img(src=`${require("./img/logo.svg")}`)
+            .header__name mocco group
+          nav.header__nav.ml-md-auto
+            ul.header__list.list.d-flex.justify-content-end
+              - var list = ['home', 'about', 'tour', 'hotels', 'blog', 'contact']
+              - var count = 1
+              each item in list
+                li(class=`header__item--${count++}`).item.header__item
+                  a(href='#').link= item
+          button.header__btn.btn Book Now
+    main.main
+      section.section.section--first
+        .container.first__container
+            .first__composition
+              h2.h2.first__h2 World Best Travell Agency
+              strong.first__proposal Save Upto 40% For Upcoming Summer
+              small.first__rules Starts From $250 Only   ( 2 Days, 3 Nights)
+              button.btn.first__btn Explore Now
+      section.section--agency
+        .container.agency__container
+          .agency__composition
+            h2.h2.agency__h2 Our Agency
+            strong.agency__strong Feature Trip
+            p.text.agency__text Accusamus et iusto odio bolo dignissimos ducimus qui lawer blandits praesentium Accus amus et iusto odio bolo atque volup tatum delenite.
+            button.btn.agency__btn book now
+          .agency__gallary
+            - var list = [['london', 'England'], ['Dubai', 'UAE'], ['Bern', 'Switzerland']]
+            - var count = 0
+            each sity in list
+              +sity(sity[0], sity[1], count++)
+      section.section--packages.section--p
+        .container
+          +title('Provide Packege', 'Convenience')
+          .packages__slider
+            .glide__track(data-glide-el='track')
+              ul.glide__slides
+                - var titles = ['', 'Hotel Facilities', 'Tourist Guide', 'Air Ticket']
+                - for (var x = 1; x < 4; x++)
+                  +package__slide(x)
+            +arrows
+      section.section--p.section--care
+        .container
+          +title('We Take Best Care', 'Why Choose Us?').care__title--section
+          - var text = 'Accusamus et iusto odio bolo dignissimos  ducimus qui lawer blandits praesentium Accus amus et iusto odio bol Accus amus et iusto odio bol .'
+          .care__composition
+            .row.no-gutters
+              +care__card('Unlimited Room Available.', text).pr-sm-2
+              +care__card('Air / Bus Ticket Provide By Us.', text).pl-sm-2.mt-3.mt-sm-0
+            .row.no-gutters.mt-3
+              +care__card('Custome Packege Available.', text).pr-sm-2
+              +care__card('100% Safe and Luxury Journey.', text).pl-sm-2
+      section.section--p.section--provide
+        .container
+          h2.provide__title Custome PaCkege
+          form(action="").provide__form.d-flex.flex-column.flex-md-row
+            input(type="text" placeholder="Location" required).provide__location.flex-fill.p-3
+            input(type="text" placeholder="Check In" required).provide__in.flex-fill.p-3
+            input(type="text" placeholder="Check Out" required).provide__out.flex-fill.p-3
+            input(type="text" placeholder="People" required).provide__people.flex-fill.p-3
+            input(type="submit" value="Book Now").btn.provide__btn.flex-fill.p-3
+      section.section--place
+        .container.section--p
+          .place__bg
+          +title('Our Agency Provide Worldwide', 'Best Tourist Place')  
+          p.text.place__text Pleasure and praising pain was born and I will give you a complete account of the system, human happiness no oncauwho do not know that.
+          .row
+            +place__card('Europe', ['Belgium', 'Germany', 'Spain', 'Ireland', 'France', 'Iceland', 'Switzerland', 'Denmark', 'Croatia', 'Italy', 'Netherlands', 'Latvia'])
+            +place__card('Asia', ['Bsngladesh', 'India', 'Singapore', 'Nepal', 'Malaysia', 'Pakistan', 'Philippines', 'Myanmar', 'Indonesia', 'Timor-Leste', 'United Arab Emirates'])
+          .row
+            +place__card('Europe', ['Belgium', 'Germany', 'Spain', 'Ireland', 'France', 'Iceland', 'Switzerland', 'Denmark', 'Croatia', 'Italy', 'Netherlands', 'Latvia'])
+            +place__card('Asia', ['Bsngladesh', 'India', 'Singapore', 'Nepal', 'Malaysia', 'Pakistan', 'Philippines', 'Myanmar', 'Indonesia', 'Timor-Leste', 'United Arab Emirates'])
+          .row
+            +place__card('Europe', ['Belgium', 'Germany', 'Spain', 'Ireland', 'France', 'Iceland', 'Switzerland', 'Denmark', 'Croatia', 'Italy', 'Netherlands', 'Latvia'])
+            +place__card('Asia', ['Bsngladesh', 'India', 'Singapore', 'Nepal', 'Malaysia', 'Pakistan', 'Philippines', 'Myanmar', 'Indonesia', 'Timor-Leste', 'United Arab Emirates'])
+      section.section--count.py-5
+        .container
+          .row.d-flex.flex-wrap.flex-column.flex-md-row.justify-content-between
+            +counter('people', '2580', 'Happy Client')
+            +counter('paper-plane', '1880', 'Online Member')
+            +counter('flag', '2212', 'Complete Tour.')
+            +counter('cup', '250', 'Award Wining')
+      section.section--app
+        .container
+          .row.pt-5
+            .col.col-md-6.app__part--1
+              img(src=`${require('./img/phone.png')}`)
+            .col-md-6.app__part--2.align-self-center
+              .app__composotion
+                .app__title Download Our Offical Apps
+                .app__text.text.mt-3 Pleasure and praising pain was born and I will give you a complete account of the system, human happiness Pleasure and praising pain was born and I will give you an account know that.
+                .app__btn-wrapper.d-flex.flex-column.flex-sm-row.mt-0.mt-md-3
+                  .btn.app__btn.app__btn--1.py-2.px-4.d-flex.mr-0.mr-md-4.mt-4.mt-md-0
+                    .app__icon.app__icon--android.mr-2
+                    .app__content
+                      | Available in
+                      strong.app__strong Play Store
+                  .btn.app__btn.app__btn--1.py-2.px-4.d-flex.mt-4.mt-md-0
+                    .app__icon.app__icon--ios.mr-2
+                    .app__content
+                      | Available in
+                      strong.app__strong Apple ISo
+    footer.footer.py-3.mt-4
+      |  Copyright © 2018 MOCCO Group Pty Limited

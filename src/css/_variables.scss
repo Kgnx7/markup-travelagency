@@ -1,0 +1,22 @@
+// FONTS //
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Open+Sans:400,700|Poppins:400,500|Raleway:400,500');
+
+@font-face {
+  font-family: "Segoe Script";
+  src: url("../public/fonts/Segoe Script.ttf");
+}
+//  //
+
+// COLORS //
+$red-accent-color: #ef5b5b;
+$grey: #808080;
+$blue-accent-color: #00b1ff;
+$dark: #222;
+$light-gray: #f0efef;
+//  //
+
+
+$countries: 'europe' 'asia';
+$icons: 'people' 'paper-plane' 'flag' 'cup';
+
+// MIXINS //

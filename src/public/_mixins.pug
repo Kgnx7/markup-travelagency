@@ -1,0 +1,49 @@
+mixin sity(first, second)
+  div(class=`agency__sity--${count}`).agency__sity
+    div(class=`agency__img--${count}`).agency__img
+    .agency__title= `${first}, ${second}`
+    .agency__discover
+      .agency__rating 
+        | Rating: 
+        span.agency__span ★★★★★
+      .agency__btn--galary.btn Discover
+mixin title(first, second)
+  .title__composition
+    h2.title__small= first
+    strong(class!=attributes.class).title__h2= second
+mixin package__slide(x) 
+  li(class=`packages__slide--${x}`).glide__slide.packages__slide
+    img(src=`${require(`./img/package-${x}.svg`)}`).package__img
+    strong.package__title= titles[x]
+    p.text you are going to use a passage of Lorem Ipsum, you need to be there isn't anything embarrassing hidden in the middle of text avaible,
+
+    
+mixin arrows
+  .glide__arrows(data-glide-el='controls')
+    button.glide__arrow.glide__arrow--left.btn(data-glide-dir='<')
+    button.glide__arrow.glide__arrow--right.btn(data-glide-dir='>')
+mixin care__card(title, text)
+  div(class!=attributes.class).care__wrapper.col-12.col-sm-6
+    .care__card.p-3
+      strong.care__title--card= title
+      p.text.mt-2= text
+
+mixin place__card(place, countries)
+  .place__wrapper.col-12.col-md-6.d-flex.flex-nowrap
+    div(class=`place__img--${place.toLowerCase()}`).place__img
+    .place__content.pr-0.pt-0.pl-3
+      .place__name= `${place} (${countries.length} Countries)`
+      .place__items
+        ul.place__list.list.mt-2
+          each country in countries
+            li.place__item.item.text= country
+            
+mixin counter(icon, number, text)
+  .counter__wrappers.col-12.col-md-auto.mt-3.d-flex.justify-content-center
+    div(class=`counter__icon--${icon}`).counter__icon.mr-2
+    .counter__content
+      strong.counter__number= number
+      small.counter__small= text
+      
+  
+    
